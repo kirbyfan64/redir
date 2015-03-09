@@ -33,7 +33,7 @@ Give a maximum buffer size in bytes. If the buffer size exceeds this amount, the
 Append to the target file instead of overwriting it.
 
 `-t <tmp>` (``redirf`` only)
-------------------------
+----------------------------
 
 Use `<tmp>` as the temporary file. Normally, `redirf` uses ``/tmp/redir.$$``, where `$$` is the current process id.
 
