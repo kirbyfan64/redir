@@ -1,0 +1,11 @@
+SRCDIR = .
+
+LANGUAGES += c
+COMPILEOPTS += -std=c89 -pedantic -Wall -Werror -D_POSIX_C_SOURCE=200112L
+
+BINARIES += redir
+SOURCES += redir.c
+
+BINARIES += redirf
+SOURCES += redir.c
+COMPILEOPTS += -DREDIRF
