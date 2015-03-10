@@ -40,7 +40,7 @@ int process() {
     for (;;) {
         if (fgets(tbuf, sizeof(tbuf), stdin) == NULL) {
             if (ferror(stdin)) goto error;
-            goto next;
+            break;
         }
         len = strlen(tbuf);
         total += len;
@@ -54,7 +54,6 @@ int process() {
         buflen += len;
         #endif
     }
-    next:
     /* write to file */
     if (append) mode[0] = 'a';
     if ((out = fopen(file, mode)) == NULL) goto error;
