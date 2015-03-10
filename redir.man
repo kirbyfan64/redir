@@ -1,0 +1,45 @@
+.TH REDIR 1
+.SH NAME
+redir, redirf \- write stdin to the output file only after all input is read
+.SH SYNOPSIS
+\fBredir\fR  [\fB\-s\fR \fImax\fR] [\fB\-a\fR]
+.IR file
+.br
+\fBredirf\fR [\fB\-s\fR \fImax\fR] [\fB\-a\fR] [\fB\-t\fR \fItmp\fR]
+.IR file
+.SH DESCRIPTION
+\fBredir\fR reads all of stdin into an interal buffer, followed by writing the
+buffer to the given file. This is primarily beneficial in creating pipelines where
+a file is both read from and written to. Such files would normally end up being
+cleared.
+
+\fBredirf\fR is a variant of \fBredir\fR that uses an on-disk temporary file as
+its buffer instead of allocating memory. This is useful when working with large
+files.
+
+.SH OPTIONS
+.TP
+.BR \-s " " \fImax\fR
+Use \fImax\fR as the maximum buffer size. If the buffer size exceeds this amount,
+the program aborts. By default, the buffer will grow infinitely.
+.TP
+.BR \-a
+Append to the target file instead of overwriting it.
+.TP
+.BR \-t " " \fItmp\fR
+Use \fItmp\fR as the temporary file. In \fBredirf\fR only. By default, the
+temporary file used is \fI/tmp/redir.pid\fR, where \fIpid\fR is \fBredir\fR\'s
+process id.
+.SH EXAMPLES
+Using \fBredir\fR with \fBgrep(1)\fR to filter a file's contents:
+.PP
+.nf
+.RS
+cat myfile | grep 'pattern_here' | redir myfile
+.RE
+.fi
+.PP
+.SH BUGS
+Report all bugs to <http://github.com/kirbyfan64/redir/issues>.
+.SH SEE ALSO
+.BR sponge (1)

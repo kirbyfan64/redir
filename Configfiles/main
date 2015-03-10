@@ -9,3 +9,10 @@ SOURCES += redir.c
 BINARIES += redirf
 SOURCES += redir.c
 COMPILEOPTS += -DREDIRF
+
+LANGUAGES += man
+
+SHARE += man/man1/redir.1
+SOURCES += redir.man
+SHARE += man/man1/redirf.1
+SOURCES += redirf.man
