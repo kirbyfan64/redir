@@ -24,6 +24,7 @@ void gentmp() {
 
 int process() {
     char tbuf[1024];
+    char mode[] = "w";
     unsigned long total = 0;
     size_t len;
     int ret = 0;
@@ -55,7 +56,8 @@ int process() {
     }
     next:
     /* write to file */
-    if ((out = fopen(file, "w")) == NULL) goto error;
+    if (append) mode[0] = 'a';
+    if ((out = fopen(file, mode)) == NULL) goto error;
     #ifdef REDIRF
     rewind(tmpf);
     for (;;) {
