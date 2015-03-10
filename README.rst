@@ -14,6 +14,8 @@ You need `pconfigure <https://github.com/palmer-dabbelt/pconfigure>`_ to build `
    $ make
    $ sudo make install
 
+To build with debug symbols, use ``pconfigure --config debug``.
+
 Usage and examples
 ******************
 
