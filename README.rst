@@ -8,13 +8,19 @@ redir
 Building
 ********
 
-You need `pconfigure <https://github.com/palmer-dabbelt/pconfigure>`_ to build ``redir``. Just run::
+You need `pconfigure <https://github.com/palmer-dabbelt/pconfigure>`_ to build ``redir`` or ``fbuild <https://github.com/felix-lang/fbuild>``_ (the development version!). Just run::
    
    $ pconfigure
    $ make
    $ sudo make install
 
-To build with debug symbols, use ``pconfigure --config debug``.
+for pconfigure or::
+   
+   $ fbuild
+
+for Fbuild.
+
+To build with debug symbols, use ``pconfigure --config debug`` or ``fbuild --config=debug``.
 
 Usage and examples
 ******************
